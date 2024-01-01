@@ -1,6 +1,6 @@
 #Faça um programa que pergunte o preço de três produtos e informe qual produto você deve comprar, sabendo que a decisão é sempre pelo mais barato.
 
-print('=====QUAL PRODUTO COMPRAR====='.center(60))
+print('=====QUAL PRODUTO COMPRAR ?====='.center(60))
 print("")
 
 
@@ -18,4 +18,4 @@ else:
     produto_mais_barato = 'Produto 3'
 
 
-print(f'Você deve comprar o produto {produto_mais_barato}, pois é o mais barato')
+print(f'Você deve comprar o produto {produto_mais_barato}, pois é o mais barato.')

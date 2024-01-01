@@ -16,4 +16,5 @@ numero_3 = float(input('Digite o terceiro numero: '))
 
 maior_numero = encontrar_maior_numero(numero_1, numero_2, numero_3)
 
+print('')
 print(f'O maior numero digitado é: {maior_numero:.0f}')
