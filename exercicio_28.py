@@ -10,6 +10,8 @@
 #comprada pelo usuário e gere um cupom fiscal, contendo as informações da compra: tipo e quantidade de carne, preço total, 
 #tipo de pagamento, valor do desconto e valor a pagar.
 
+print('==========HIPERMERCADO TABAJARA=========='.center(120))
+
 def file_duplo(kg): 
     if (kg <= 5):
         return 4.90
@@ -58,12 +60,12 @@ def forma_pagamento(forma_de_pagamento, compra_bruta):
     
 total_da_compra = forma_pagamento(forma_de_pagamento, compra_bruta)
 
-print(F""" ==========CUPOM FISCAL TABAJARA==========\n
-       {kg_alcatra} ALCATRA    R$ {preco_da_alcatra:.2f}
-       {kg_picanha} PICANHA    R$ {preco_da_picanha:.2f}
-       {kg_file_duplo} FILE DUPLO R$ {preco_file_duplo}
+print(F""" ====================CUPOM FISCAL TABAJARA====================\n
+       {kg_alcatra:.0f}kg ALCATRA    R$ {total_da_alcatra:.2f}
+       {kg_picanha:.0f}kg PICANHA    R$ {total_da_picanha:.2f}
+       {kg_file_duplo:.0f}kg FILE DUPLO R$ {total_file_duplo:.2f}
 
 
-                            TOTAL R$ {total_da_compra}
-    ====================================================
-                VOLTE SEMPRE""")
+    TOTAL R$  {compra_bruta}          TOTAL COM DESCONTO R$ {total_da_compra:.2f}
+    ===========================================================
+                            VOLTE SEMPRE""")
