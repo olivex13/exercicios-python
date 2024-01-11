@@ -1,5 +1,5 @@
-#	Faça um Programa que peça um número correspondente a um determinado ano 
-# em seguida informe se este ano é ou não bissexto.
+'''Faça um Programa que peça um número correspondente a um determinado ano 
+em seguida informe se este ano é ou não bissexto.'''
 
 print('==========ANO BISSEXTO=========='.center(60))
 print('')
