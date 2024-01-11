@@ -43,7 +43,7 @@ if (operacao == 'a'):
         letra_b = 'O numero é positivo'
     else:
         letra_b = 'O numero é negativo'
-    if isinstance(total, int):
+    if total == int(total):
         letra_c = 'O numero é inteiro'
     else: 
         letra_c = 'O numero é decimal'
@@ -59,7 +59,7 @@ elif (operacao == 'b'):
         letra_b = 'O numero é positivo'
     else:
         letra_b = 'O numero é negativo'
-    if isinstance(total, int):
+    if total == int(total):
         letra_c = 'O numero é inteiro'
     else: 
         letra_c = 'O numero é decimal'
@@ -75,7 +75,7 @@ elif (operacao == 'c'):
         letra_b = 'O numero é positivo'
     else:
         letra_b = 'O numero é negativo'
-    if isinstance(total, int):
+    if total == int(total):
         letra_c = 'O numero é inteiro'
     else: 
         letra_c = 'O numero é decimal'
@@ -90,7 +90,7 @@ elif (operacao == 'd'):
         letra_b = 'O numero é positivo'
     else:
         letra_b = 'O numero é negativo'
-    if isinstance(total, int):
+    if total == int(total):
         letra_c = 'O numero é inteiro'
     else: 
         letra_c = 'O numero é decimal'
