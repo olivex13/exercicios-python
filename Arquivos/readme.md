@@ -1,3 +1,4 @@
+
 # EXERCICIOS ARQUIVOS - PYTHON
 
 ## Exercicios de ARQUIVOS em Python, com o objetivo de aprimorar os cohecimentos.
