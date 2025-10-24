@@ -2,8 +2,15 @@
 
 print("VERIFICANDO SE É VOGAL OU CONSOANTE".center(60))
 
-letra = input("Digite uma letra: ")
-letra = letra.lower()
+while True:
+    letra = input("Digite uma letra: ")
+    letra = letra.lower()
+
+    if len(letra) == 1 and letra.isalpha():
+        break
+    else:
+        print(' \n Digite uma letra válida')
+        print('======================== \n')
 
 if letra in 'aeiou':
     print(f'A letra "{letra}" é uma vogal.')
