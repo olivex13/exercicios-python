@@ -1,26 +1,61 @@
-'''
-46 - Em uma competição de salto em distância cada atleta tem direito a cinco saltos. 
-No final da série de saltos de cada atleta, o melhor e o pior resultados são eliminados. 
-O seu resultado fica sendo a média dos três valores restantes. 
-Você deve fazer um programa que receba o nome e as cinco distâncias alcançadas pelo atleta em seus saltos
-e depois informe a média dos saltos conforme a descrição acima informada 
-(retirar o melhor e o pior salto e depois calcular a média). 
-Faça uso de uma lista para armazenar os saltos. 
-Os saltos são informados na ordem da execução, portanto não são ordenados. 
-O programa deve ser encerrado quando não for informado o nome do atleta. 
-A saída do programa deve ser conforme o exemplo abaixo:
 
-| Atleta            | Rodrigo Curvêllo |
-|-------------------|-------------------|
-| Primeiro Salto    | 6.5 m             |
-| Segundo Salto     | 6.1 m             |
-| Terceiro Salto    | 6.2 m             |
-| Quarto Salto      | 5.4 m             |
-| Quinto Salto      | 5.3 m             |
-| Melhor Salto      | 6.5 m             |
-| Pior Salto        | 5.3 m             |
-| Média dos demais  | 5.9 m             |
-| Resultado Final   | 5.9 m             |
+#exercicio 46
 
-'''
+NOMES_SALTOS = ['Primeiro', 'Segundo', 'Terceiro', 'Quarto', 'Quinto']
 
+
+def coletar_saltos(nome):
+    print(f'Saltos do(a) Atleta {nome}'.center(46))
+    saltos = []
+    for ordem in NOMES_SALTOS:
+        while True:
+            try:
+                distancia = float(input(f'  {ordem} salto (m): '))
+                saltos.append(distancia)
+                break
+            except ValueError:
+                print('  Valor inválido. Digite um número.')
+    return saltos
+
+
+def exibir_resultado(nome, saltos):
+    melhor = max(saltos)
+    pior = min(saltos)
+
+    saltos_restantes = saltos.copy()
+    saltos_restantes.remove(melhor)
+    saltos_restantes.remove(pior)
+    media = sum(saltos_restantes) / len(saltos_restantes)
+
+    print('=' * 46 + '\n')
+    print(f'| {"Atleta":<20} | {nome:<20} |')
+    print(f'|{"-" * 22}|{"-" * 22}|')
+    for ordem, dist in zip(NOMES_SALTOS, saltos):
+        rotulo = f'{ordem} Salto'
+        valor  = f'{dist:.1f} m'
+        print(f'| {rotulo:<20} | {valor:<20} |')
+    print(f'|{"-" * 22}|{"-" * 22}|')
+    print(f'| {"Melhor Salto":<20} | {f"{melhor:.1f} m":<20} |')
+    print(f'| {"Pior Salto":<20} | {f"{pior:.1f} m":<20} |')
+    print(f'| {"Média dos demais":<20} | {f"{media:.1f} m":<20} |')
+    print(f'| {"Resultado Final":<20} | {f"{media:.1f} m":<20} |')
+
+print('=' * 46)
+print('COMPETIÇÃO DE SALTO EM DISTÂNCIA'.center(46))
+print('=' * 46)
+
+while True:
+    print()
+    nome = input('Nome do atleta (ou ENTER para encerrar): ').strip()
+
+    if nome == '':
+        break
+
+    print('=' * 46)
+    saltos = coletar_saltos(nome)
+    exibir_resultado(nome, saltos)
+
+print()
+print('=' * 46)
+print('Programa encerrado.'.center(46))
+print('=' * 46)
