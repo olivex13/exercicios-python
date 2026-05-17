@@ -1,35 +1,65 @@
-"""
-19 - Uma empresa de pesquisas precisa tabular os resultados da seguinte enquete feita a um grande quantidade de organizações:
-"Qual o melhor Sistema Operacional para uso em servidores?"
+# exercicio 19
 
-As possíveis respostas são:
+sistemas_operacionais = [
+    "Windows Server",
+    "Unix",
+    "Linux",
+    "Netware",
+    "Mac OS",
+    "Outro"
+]
 
-1- Windows Server
+def coletar_votos(sistemas_operacionais):
+    """Exibe os candidatos com suas posições e coleta os votos até o usuário digitar 0."""
+    votos = [0] * len(sistemas_operacionais)
 
-2- Unix
+    print("=" * 46)
+    print("PESQUISA DE SISTEMAS OPERACIONAIS".center(46))
+    print("=" * 46)
+    print("\nQual o melhor Sistema Operacional para servidores?\n")
 
-3- Linux
+    for i, so in enumerate(sistemas_operacionais):
+        print(f"  {so} - Digite {i + 1}")
+    print("\n  Para encerrar - Digite 0")
+    print("-" * 46)
 
-4- Netware
+    while True:
+        try:
+            voto = int(input("\nDigite o voto: "))
+        except ValueError:
+            print("  Entrada inválida! Digite um número.")
+            continue
 
-5- Mac OS
+        if voto == 0:
+            print("\nVotação encerrada!")
+            break
+        elif 1 <= voto <= len(sistemas_operacionais):
+            votos[voto - 1] += 1
+            print(f"  Voto registrado para: {sistemas_operacionais[voto - 1]}")
+        else:
+            print(f"  Opcao invalida! Digite um numero entre 1 e {len(sistemas_operacionais)}, ou 0 para encerrar.")
 
-6- Outro
+    return votos
 
-Você foi contratado para desenvolver um programa que leia o resultado da enquete e informe ao final o resultado da mesma. O programa deverá ler os valores até ser informado o valor 0, que encerra a entrada dos dados. Não deverão ser aceitos valores além dos válidos para o programa (0 a 6). Os valores referentes a cada uma das opções devem ser armazenados num vetor. Após os dados terem sido completamente informados, o programa deverá calcular a percentual de cada um dos concorrentes e informar o vencedor da enquete. O formato da saída foi dado pela empresa, e é o seguinte:
+votos = coletar_votos(sistemas_operacionais)
 
-| Sistema Operacional   | Votos | %   |
-|-----------------------|-------|-----|
-| Windows Server        | 1500  | 17% |
-| Unix                  | 3500  | 40% |
-| Linux                 | 3000  | 34% |
-| Netware               | 500   | 5%  |
-| Mac OS                | 150   | 2%  |
-| Outro                 | 150   | 2%  |
-|-----------------------|-------|-----|
-| **Total**             | **8800** |     |
+total = sum(votos)
 
-O Sistema Operacional mais votado foi o Unix, com 3500 votos, correspondendo a 40% dos votos.
+print("\n" + "=" * 46)
+print(f"{'Sistema Operacional':<22} {'Votos':>6} {'%':>5}")
+print("-" * 46)
 
+for i, so in enumerate(sistemas_operacionais):
+    percentual = (votos[i] / total * 100) if total > 0 else 0
+    print(f"{so:<22} {votos[i]:>6} {percentual:>4.0f}%")
 
-"""
+print("-" * 46)
+print(f"{'Total':<22} {total:>6}")
+print("=" * 46)
+
+if total > 0:
+    indice_vencedor = votos.index(max(votos))
+    vencedor = sistemas_operacionais[indice_vencedor]
+    votos_vencedor = votos[indice_vencedor]
+    percentual_vencedor = votos_vencedor / total * 100
+    print(f"\nO SO mais votado foi o {vencedor}, com {votos_vencedor} votos ({percentual_vencedor:.0f}%).")
